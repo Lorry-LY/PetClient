@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_item1"
+        android:icon="@drawable/navigation_bottom_item1"
+        android:title="@string/title_navigation_item1" />
+    <item
+        android:id="@+id/navigation_item2"
+        android:icon="@drawable/navigation_bottom_item2"
+        android:title="@string/title_navigation_item2" />
+    <item
+        android:id="@+id/navigation_item3"
+        android:icon="@drawable/navigation_bottom_item3"
+        android:title="@string/title_navigation_item3" />
+    <item
+        android:id="@+id/navigation_item4"
+        android:icon="@drawable/navigation_bottom_item4"
+        android:title="@string/title_navigation_item4" />
+
+    <item
+        android:id="@+id/navigation_item5"
+        android:icon="@drawable/navigation_bottom_item5"
+        android:title="@string/title_navigation_item5" />
+</menu>

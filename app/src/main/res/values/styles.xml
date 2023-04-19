@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HomeTabLayoutText">
+        <item name="android:textSize">@dimen/tabSize</item>
+    </style>
+
+    <dimen name="tabSize">20dp</dimen>
+</resources>
