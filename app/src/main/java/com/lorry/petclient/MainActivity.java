@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mViewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-//        mViewPager.setOffscreenPageLimit(1);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.registerOnPageChangeCallback(
                 new ViewPager2.OnPageChangeCallback() {
                     @Override

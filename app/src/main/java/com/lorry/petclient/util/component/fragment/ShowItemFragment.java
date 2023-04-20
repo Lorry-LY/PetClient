@@ -1,5 +1,6 @@
 package com.lorry.petclient.util.component.fragment;
 
+
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -23,7 +23,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <ImageButton
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
                     android:id="@+id/imageButton4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -78,13 +78,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
                     android:id="@+id/imageView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="20dp"
-                    android:background="@drawable/circle_button"
-                    android:cropToPadding="true"
+                    app:round="360dip"
+
                     tools:src="@tools:sample/avatars[2]" />
 
                 <LinearLayout
