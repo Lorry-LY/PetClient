@@ -54,14 +54,16 @@
                 android:layout_toEndOf="@+id/fragment_show_item_author_image"
                 android:text="hello" />
 
-            <androidx.constraintlayout.utils.widget.ImageFilterView
+            <CheckBox
                 android:id="@+id/fragment_show_item_support_image"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 app:round="360dip"
                 android:layout_toStartOf="@+id/fragment_show_item_support_number"
-                android:src="@drawable/ic_launcher_background"
-                tools:src="@tools:sample/avatars" />
+                android:button="@null"
+                android:background="@drawable/image_support_selector"
+                android:layout_marginEnd="5dp" />
+
 
             <TextView
                 android:id="@+id/fragment_show_item_support_number"

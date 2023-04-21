@@ -1,11 +1,17 @@
 package com.lorry.petclient.fragment.index;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.utils.widget.ImageFilterView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -14,13 +20,16 @@ import com.google.android.material.tabs.TabLayout;
 import com.lorry.petclient.R;
 import com.lorry.petclient.fragment.my.CollectFragment;
 import com.lorry.petclient.fragment.my.SupportFragment;
+import com.lorry.petclient.util.http.HttpMapper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MyFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class MyFragment extends Fragment {
@@ -83,5 +92,69 @@ public class MyFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        View view = getView();
+        HttpMapper.getUserInfo("user_10001", (res) -> {
+            System.out.println(res.toString());
+            try {
+                if (res.getInt("code") == 200) {
+                    JSONObject data = res.getJSONObject("data");
+                    String name = data.getString("name");
+                    String number = data.getString("number");
+                    String description = data.getString("description");
+                    getActivity().runOnUiThread(() -> {
+                        TextView view_name = view.findViewById(R.id.fragment_my_view_name);
+                        view_name.setText(name);
+                        TextView view_number = view.findViewById(R.id.fragment_my_view_number);
+                        view_number.setText(String.format("小宠吧号:%s", number));
+                        TextView view_description = view.findViewById(R.id.fragment_my_view_description);
+                        view_description.setText(description);
+                    });
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
+
+        HttpMapper.getUserAvatar("user_10001", (res) -> {
+            System.out.println(res);
+            try {
+                if (res.getInt("code") == 200) {
+                    JSONObject data = res.getJSONObject("data");
+                    String base64 = data.getString("base64");
+                    getActivity().runOnUiThread(() -> {
+                        ImageFilterView avatar = view.findViewById(R.id.fragment_my_image_avatar);
+                        byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
+                        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                        avatar.setImageBitmap(decodedByte);
+                    });
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
+
+        HttpMapper.getUserBackground("user_10001", (res) -> {
+            System.out.println(res);
+            try {
+                if (res.getInt("code") == 200) {
+                    JSONObject data = res.getJSONObject("data");
+                    String base64 = data.getString("base64");
+                    getActivity().runOnUiThread(() -> {
+                        LinearLayout avatar = view.findViewById(R.id.fragment_my_image_background);
+                        byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
+                        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+//                            avatar.setBackgroundResource();
+//                            avatar.setImageBitmap(decodedByte);
+                    });
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }

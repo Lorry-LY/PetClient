@@ -69,6 +69,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/fragment_my_image_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -80,7 +81,7 @@
 
 
                 <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:id="@+id/imageView"
+                    android:id="@+id/fragment_my_image_avatar"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_margin="20dp"
@@ -96,7 +97,7 @@
                     android:layout_marginStart="20dp">
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/fragment_my_view_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -105,7 +106,7 @@
                         android:textSize="25dp" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/fragment_my_view_number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
@@ -120,7 +121,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/fragment_my_view_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -214,7 +215,7 @@
                     android:layout_weight="3">
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/fragment_my_button_edit_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:background="@drawable/radius_button"
@@ -223,13 +224,12 @@
                         android:insetBottom="0dp"
                         android:text="编辑资料"
                         android:textSize="15dp"
-
                         android:layout_marginEnd="10dp"
-                        android:layout_toLeftOf="@+id/imageButton9"
+                        android:layout_toLeftOf="@+id/fragment_my_button_setting"
                         android:layout_centerVertical="true" />
 
                     <Button
-                        android:id="@+id/imageButton9"
+                        android:id="@+id/fragment_my_button_setting"
                         android:layout_width="70dp"
                         android:layout_height="30dp"
                         android:insetTop="0dp"
