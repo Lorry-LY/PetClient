@@ -3,6 +3,7 @@ package com.lorry.petclient.util.component.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.utils.widget.ImageFilterView;
 
 import com.lorry.petclient.R;
+import com.lorry.petclient.activity.PostImageActivity;
 import com.lorry.petclient.util.data.NumberUtil;
 import com.lorry.petclient.util.data.StringUtil;
 import com.lorry.petclient.util.http.HttpMapper;
@@ -68,6 +70,7 @@ public class ShowItemFragment extends Fragment {
         if (getArguments() != null) {
             this.data = getArguments();
         }
+
     }
 
     @Override
@@ -100,10 +103,6 @@ public class ShowItemFragment extends Fragment {
                         byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
                         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                         title_image.setImageBitmap(decodedByte);
-//                        int width = title_image.getWidth();
-//                        int height = (int) (width * RowImageScalarHeight);
-//                        title_image.setMaxHeight(height);
-//                        title_image.setMinimumHeight(height);
                     });
                 }
             } catch (JSONException e) {
@@ -120,6 +119,7 @@ public class ShowItemFragment extends Fragment {
                         byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
                         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                         author_image.setImageBitmap(decodedByte);
+                        System.gc();
                     });
                 }
             } catch (JSONException e) {
@@ -136,6 +136,14 @@ public class ShowItemFragment extends Fragment {
         long l = new Random().nextInt(10000000);
         if (l < 0) l = l * -1;
         support_number.setText(String.format("%s", NumberUtil.format(l)));
+
+        getView().setOnClickListener(view2 -> {
+            Intent intent = new Intent(this.getActivity(), PostImageActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("ID", data.getString("id"));
+            intent.putExtra("data", bundle);
+            startActivity(intent);
+        });
 
     }
 }

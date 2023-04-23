@@ -36,4 +36,13 @@
         <item name="android:textSize">@dimen/IndexTabSize</item>
 
     </style>
+
+    <declare-styleable name="PostImageRadioButton">
+        <attr name="drawableSize" format="dimension" />
+        <attr name="drawableTop" format="reference" />
+        <attr name="drawableLeft" format="reference" />
+        <attr name="drawableRight" format="reference" />
+        <attr name="drawableBottom" format="reference" />
+    </declare-styleable>
+
 </resources>

@@ -3,10 +3,13 @@ package com.lorry.petclient.fragment.home;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.lorry.petclient.R;
 import com.lorry.petclient.util.component.fragment.ShowItemFragment;
@@ -52,8 +55,26 @@ public class IndexFragment extends androidx.fragment.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_index, container, false);
-
+        ScrollView scrollView = view.findViewById(R.id.fragment_index_scrollView);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            scrollView.setOnScrollChangeListener((view1, i, i1, i2, i3) -> {
+                if (view1.getScrollY() <= 0) {
+                    clearPosts();
+                    getPosts();
+                } else if (view1.getScrollY() + view1.getHeight() - view1.getPaddingTop() - view1.getPaddingBottom() == ((ScrollView) view1).getChildAt(0).getHeight()) {
+                    System.out.println("bottom");
+                }
+            });
+        }
+        getPosts();
         return view;
+    }
+
+    private void clearPosts() {
+        LinearLayout view_left = getView().findViewById(R.id.fragment_index_show_left);
+        LinearLayout view_right = getView().findViewById(R.id.fragment_index_show_right);
+        view_left.removeAllViews();
+        view_right.removeAllViews();
     }
 
     private List<JSONObject> getPosts() {
@@ -69,7 +90,7 @@ public class IndexFragment extends androidx.fragment.app.Fragment {
                     for (JSONObject post : jsonObjects) {
                         fragmentList.add(ShowItemFragment.newInstance(post));
                     }
-                    Boolean is_left = true;
+                    boolean is_left = true;
                     for (Fragment item : fragmentList) {
                         FragmentManager fragmentManager = getActivity().getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -88,7 +109,6 @@ public class IndexFragment extends androidx.fragment.app.Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        getPosts();
     }
 
     @Override
