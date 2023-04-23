@@ -21,7 +21,10 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/circle_button" />
+                android:src="@drawable/home_header_left"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
+                android:background="@null" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_home_tab"
@@ -62,7 +65,10 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/circle_button" />
+                android:src="@drawable/search_icon"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
+                android:background="@null" />
 
         </LinearLayout>
 

@@ -4,13 +4,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lorry.petclient.R;
-import com.lorry.petclient.util.component.fragment.ShowItemFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +39,7 @@ public class SupportFragment extends androidx.fragment.app.Fragment {
 
         }
         fragmentList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            fragmentList.add(ShowItemFragment.newInstance(i));
-        }
+
     }
 
     @Override
@@ -60,7 +56,7 @@ public class SupportFragment extends androidx.fragment.app.Fragment {
             fragmentTransaction.commit();
             is_left = !is_left;
         }
-        Log.d("my", String.format("%d", fragmentList.size()));
+
         return view;
     }
 }

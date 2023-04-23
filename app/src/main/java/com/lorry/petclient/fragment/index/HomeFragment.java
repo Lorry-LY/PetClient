@@ -79,6 +79,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        mHeaderTabs.selectTab(mHeaderTabs.getTabAt(1));
         return view;
     }
 

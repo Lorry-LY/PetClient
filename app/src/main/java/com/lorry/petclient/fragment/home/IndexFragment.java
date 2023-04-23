@@ -4,13 +4,17 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lorry.petclient.R;
 import com.lorry.petclient.util.component.fragment.ShowItemFragment;
+import com.lorry.petclient.util.http.HttpMapper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +45,6 @@ public class IndexFragment extends androidx.fragment.app.Fragment {
 
         }
         fragmentList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            fragmentList.add(ShowItemFragment.newInstance(i));
-        }
     }
 
     @Override
@@ -52,15 +53,47 @@ public class IndexFragment extends androidx.fragment.app.Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_index, container, false);
 
-        Boolean is_left = true;
-        for (Fragment item : fragmentList) {
-            FragmentManager fragmentManager = getActivity().getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(is_left ? R.id.fragment_index_show_left : R.id.fragment_index_show_right, item);
-            fragmentTransaction.commit();
-            is_left = !is_left;
-        }
-        Log.d("my", String.format("%d", fragmentList.size()));
         return view;
+    }
+
+    private List<JSONObject> getPosts() {
+        List<JSONObject> jsonObjects = new ArrayList<>();
+        HttpMapper.getPostInfo(null, (res) -> {
+            try {
+                if (res.getInt("code") == 200) {
+                    JSONArray data = res.getJSONArray("data");
+                    for (int i = 0; i < data.length(); i++) {
+                        jsonObjects.add((JSONObject) data.get(i));
+                    }
+                    fragmentList = new ArrayList<>();
+                    for (JSONObject post : jsonObjects) {
+                        fragmentList.add(ShowItemFragment.newInstance(post));
+                    }
+                    Boolean is_left = true;
+                    for (Fragment item : fragmentList) {
+                        FragmentManager fragmentManager = getActivity().getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.add(is_left ? R.id.fragment_index_show_left : R.id.fragment_index_show_right, item);
+                        fragmentTransaction.commit();
+                        is_left = !is_left;
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
+        return jsonObjects;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getPosts();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 }
