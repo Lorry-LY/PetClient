@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Component</string>
     <string name="title_navigation_item1">首页</string>
-    <string name="title_navigation_item2">购物</string>
+    <string name="title_navigation_item2">收养</string>
     <string name="title_navigation_item3">添加</string>
     <string name="title_navigation_item4">消息</string>
     <string name="title_navigation_item5">我</string>
