@@ -156,7 +156,7 @@
                     <TextView
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:text="2"
+                        android:text="共13条评论"
                         android:layout_marginHorizontal="20dp">
 
                     </TextView>
@@ -202,6 +202,8 @@
                             android:layout_alignParentTop="true"
                             android:layout_alignParentStart="true"
                             app:round="360dip"
+                            android:src="@drawable/avatar1"
+                            android:scaleType="fitCenter"
                             app:srcCompat="@mipmap/ic_launcher" />
 
                         <LinearLayout
@@ -218,14 +220,14 @@
                                 android:id="@+id/textView2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="TextView"
+                                android:text="李狗."
                                 android:textColor="@color/gray_600" />
 
                             <TextView
                                 android:id="@+id/textView"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="TextView" />
+                                android:text="好巧啊，我家小泰迪正在吃胖小虎呢，吃了一段时间了，胖了不少呢！感觉还有一定美毛效果。" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -249,7 +251,7 @@
                                 android:gravity="center_horizontal"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="123" />
+                                android:text="" />
 
                         </LinearLayout>
 
@@ -261,6 +263,227 @@
 
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp">
+
+                        <androidx.constraintlayout.utils.widget.ImageFilterButton
+                            android:id="@+id/activity_post_image_layout_comments_image2"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            app:round="360dip"
+                            android:src="@drawable/avatar2"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@mipmap/ic_launcher" />
+
+                        <LinearLayout
+                            android:id="@+id/activity_post_image_layout_comments_text2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toStartOf="@+id/activity_post_image_layout_comments_support2"
+                            android:layout_toEndOf="@+id/activity_post_image_layout_comments_image2"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView22"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="经远"
+                                android:textColor="@color/gray_600" />
+
+                            <TextView
+                                android:id="@+id/textView12"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="买胖 小 虎的试吃装狗子好喜欢，打算买一包大的了。" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/activity_post_image_layout_comments_support2"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/checkBox2"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/checkbox_like"
+                                android:button="@null" />
+
+                            <TextView
+                                android:id="@+id/textView32"
+                                android:gravity="center_horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <androidx.constraintlayout.widget.Barrier
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="top" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp">
+
+                        <androidx.constraintlayout.utils.widget.ImageFilterButton
+                            android:id="@+id/activity_post_image_layout_comments_image3"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            app:round="360dip"
+                            android:src="@drawable/avatar3"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@mipmap/ic_launcher" />
+
+                        <LinearLayout
+                            android:id="@+id/activity_post_image_layout_comments_text3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toStartOf="@+id/activity_post_image_layout_comments_support3"
+                            android:layout_toEndOf="@+id/activity_post_image_layout_comments_image3"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView23"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="姐妹儿"
+                                android:textColor="@color/gray_600" />
+
+                            <TextView
+                                android:id="@+id/textView33"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="三个月大的巨贵，才到家，吃什么" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/activity_post_image_layout_comments_support3"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/checkBox33"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/checkbox_like"
+                                android:button="@null" />
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                android:gravity="center_horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <androidx.constraintlayout.widget.Barrier
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="top" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp">
+
+                        <androidx.constraintlayout.utils.widget.ImageFilterButton
+                            android:id="@+id/activity_post_image_layout_comments_image4"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentStart="true"
+                            app:round="360dip"
+                            android:src="@drawable/avatar4"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@mipmap/ic_launcher" />
+
+                        <LinearLayout
+                            android:id="@+id/activity_post_image_layout_comments_text4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toStartOf="@+id/activity_post_image_layout_comments_support4"
+                            android:layout_toEndOf="@+id/activity_post_image_layout_comments_image4"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView24"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="进击的魔法猫"
+                                android:textColor="@color/gray_600" />
+
+                            <TextView
+                                android:id="@+id/textView14"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="两个月柯基吃可以吗？" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/activity_post_image_layout_comments_support4"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:orientation="vertical">
+
+                            <CheckBox
+                                android:id="@+id/checkBox44"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/checkbox_like"
+                                android:button="@null" />
+
+                            <TextView
+                                android:id="@+id/textView34"
+                                android:gravity="center_horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="" />
+
+                        </LinearLayout>
+
+
+                        <androidx.constraintlayout.widget.Barrier
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:barrierDirection="top" />
+
+                    </RelativeLayout>
                 </LinearLayout>
 
 
@@ -309,7 +532,8 @@
 
                 <TextView
                     android:layout_width="50dp"
-                    android:layout_height="35dp">
+                    android:layout_height="35dp"
+                    android:text="125">
 
                 </TextView>
 
@@ -322,7 +546,8 @@
 
                 <TextView
                     android:layout_width="50dp"
-                    android:layout_height="35dp">
+                    android:layout_height="35dp"
+                    android:text="56">
 
                 </TextView>
 
@@ -335,7 +560,8 @@
 
                 <TextView
                     android:layout_width="50dp"
-                    android:layout_height="35dp">
+                    android:layout_height="35dp"
+                    android:text="13">
 
                 </TextView>
 

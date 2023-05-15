@@ -165,6 +165,8 @@ public class PostImageActivity extends AppCompatActivity {
                                     byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
                                     image.setImageBitmap(decodedByte);
+                                    ImageFilterView temp_view = findViewById(R.id.activity_post_image_image_author_comments);
+                                    temp_view.setImageBitmap(decodedByte);
                                 });
                             }
                         } catch (JSONException e) {

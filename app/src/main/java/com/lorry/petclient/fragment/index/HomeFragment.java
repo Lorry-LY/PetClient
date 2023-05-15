@@ -1,9 +1,11 @@
 package com.lorry.petclient.fragment.index;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
 import com.lorry.petclient.R;
+import com.lorry.petclient.activity.PostVideoActivity;
 import com.lorry.petclient.fragment.home.CityFragment;
 import com.lorry.petclient.fragment.home.ConcernFragment;
 import com.lorry.petclient.fragment.home.IndexFragment;
@@ -83,4 +86,16 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        View view = getView();
+        ImageButton btn_new = view.findViewById(R.id.imageButton_new);
+        btn_new.setOnClickListener(view1 -> {
+            Intent intent = new Intent(this.getContext(), PostVideoActivity.class);
+            startActivity(intent);
+        });
+
+    }
 }

@@ -1,5 +1,7 @@
 package com.lorry.petclient.util.data;
 
+import android.annotation.SuppressLint;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -7,6 +9,7 @@ import java.util.Date;
 public class DateTimeUtil {
 
 
+    @SuppressLint("DefaultLocale")
     public static String format(String create_date, String create_time) {
         String pattern = "yyyy-MM-dd";
         String curDate = getCurDate(pattern);

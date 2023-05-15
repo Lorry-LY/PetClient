@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.PostVideoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/layout_comments"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+
+            android:layout_alignBottom="@+id/videoView"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView_text"
+            android:layout_width="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_above="@id/progressBar"
+            android:layout_toStartOf="@id/layout_operation"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"
+            android:text="触手可及的小猫咪 这样伸懒腰怎么让人能忍住不摸摸她呢？" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_width="50dp"
+            android:src="@drawable/back"
+            android:scaleType="fitCenter"
+            android:background="@null"
+            android:padding="10dp">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/btn_share"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/share"
+            android:scaleType="fitCenter"
+            android:background="@null"
+            android:padding="10dp">
+
+        </ImageButton>
+
+        <LinearLayout
+            android:id="@+id/layout_operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/progressBar"
+            android:layout_alignEnd="@id/videoView"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="0dp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkBox_like"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:button="@null"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/checkbox_like" />
+
+            <TextView
+                android:id="@+id/textView_like_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="136" />
+
+            <CheckBox
+                android:id="@+id/checkBox_concern"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:button="@null"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/checkbox_concern" />
+
+            <TextView
+                android:id="@+id/textView_concern_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="64" />
+
+            <CheckBox
+                android:id="@+id/checkBox_comments"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:button="@null"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/post_comments" />
+
+            <TextView
+                android:id="@+id/textView_comments_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:text="13" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_above="@id/textView_text"
+            android:layout_toStartOf="@id/layout_operation"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/imageFilterButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:scaleType="fitCenter"
+                android:padding="10dp"
+                app:round="360dip"
+                android:layout_marginStart="20dp"
+                app:srcCompat="@drawable/avatar1" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="电波波波"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/button2"
+                android:background="@drawable/radius_button"
+                android:layout_marginStart="10dp"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:text="关注" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_comments"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:background="@color/black"
+            android:backgroundTint="@color/black"
+            android:paddingVertical="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:paddingStart="30dp"
+                android:background="@drawable/edit_circle"
+                android:inputType="textPersonName"
+                android:hint="发表评论" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:background="@drawable/radius_button"
+                android:layout_marginStart="20dp"
+                android:text="发送" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
