@@ -54,15 +54,6 @@ public class CollectFragment extends androidx.fragment.app.Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_collect, container, false);
 
-        Boolean is_left = true;
-        for (Fragment item : fragmentList) {
-            FragmentManager fragmentManager = getActivity().getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(is_left ? R.id.fragment_collect_show_left : R.id.fragment_collect_show_right, item);
-            fragmentTransaction.commit();
-            is_left = !is_left;
-        }
-
         return view;
     }
 

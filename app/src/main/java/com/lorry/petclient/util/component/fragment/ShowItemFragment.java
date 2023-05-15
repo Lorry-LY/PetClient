@@ -18,6 +18,7 @@ import androidx.constraintlayout.utils.widget.ImageFilterView;
 
 import com.lorry.petclient.R;
 import com.lorry.petclient.activity.PostImageActivity;
+import com.lorry.petclient.activity.PostVideoActivity;
 import com.lorry.petclient.util.data.NumberUtil;
 import com.lorry.petclient.util.data.StringUtil;
 import com.lorry.petclient.util.http.HttpMapper;
@@ -25,6 +26,7 @@ import com.lorry.petclient.util.http.HttpMapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -93,6 +95,8 @@ public class ShowItemFragment extends Fragment {
         TextView title_text = view.findViewById(R.id.fragment_show_item_title_text);
         ImageFilterView author_image = view.findViewById(R.id.fragment_show_item_author_image);
         TextView author_name = view.findViewById(R.id.fragment_show_item_author_name);
+        ImageFilterView video_icon = view.findViewById(R.id.imageFilterView_video_icon);
+        video_icon.setVisibility(Objects.equals(data.getString("kind"), "1") ? View.VISIBLE : View.GONE);
 
         HttpMapper.getPostImage(data.getString("id"), data.getString("header_image"), (res) -> {
             try {
@@ -138,7 +142,8 @@ public class ShowItemFragment extends Fragment {
         support_number.setText(String.format("%s", NumberUtil.format(l)));
 
         getView().setOnClickListener(view2 -> {
-            Intent intent = new Intent(this.getActivity(), PostImageActivity.class);
+            Intent intent = new Intent(this.getActivity(),
+                    Objects.equals(data.getString("kind"), "1") ? PostVideoActivity.class : PostImageActivity.class);
             Bundle bundle = new Bundle();
             bundle.putString("ID", data.getString("id"));
             intent.putExtra("data", bundle);

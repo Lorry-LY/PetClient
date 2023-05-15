@@ -1,14 +1,11 @@
-package com.lorry.petclient.fragment.index;
+package com.lorry.petclient.fragment.my;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 import androidx.fragment.app.Fragment;
 
@@ -25,29 +22,19 @@ import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ShopFragment#newInstance} factory method to
+ * Use the {@link ReleaseFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ShopFragment extends Fragment {
+public class ReleaseFragment extends Fragment {
 
-    private ArrayList<android.app.Fragment> fragmentList;
+    List<android.app.Fragment> fragmentList;
 
-    public ShopFragment() {
+    public ReleaseFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ShopFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ShopFragment newInstance(String param1, String param2) {
-        ShopFragment fragment = new ShopFragment();
-        Bundle args = new Bundle();
+    public static ReleaseFragment newInstance(Bundle args) {
+        ReleaseFragment fragment = new ReleaseFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,31 +45,23 @@ public class ShopFragment extends Fragment {
         if (getArguments() != null) {
 
         }
+        fragmentList = new ArrayList<>();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_shop, container, false);
-        ScrollView scrollView = view.findViewById(R.id.fragment_shop_scrollView);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            scrollView.setOnScrollChangeListener((view1, i, i1, i2, i3) -> {
-                if (view1.getScrollY() <= 0) {
-                    clearPosts();
-                    getPosts();
-                } else if (view1.getScrollY() + view1.getHeight() - view1.getPaddingTop() - view1.getPaddingBottom() == ((ScrollView) view1).getChildAt(0).getHeight()) {
-                    System.out.println("bottom");
-                }
-            });
-        }
-        getPosts();
+        View view = inflater.inflate(R.layout.fragment_release, container, false);
+
         return view;
     }
 
-    private void clearPosts() {
-        LinearLayout view_left = getView().findViewById(R.id.fragment_shop_show);
-        view_left.removeAllViews();
+    @Override
+    public void onStart() {
+        super.onStart();
+        getPosts();
     }
 
     private List<JSONObject> getPosts() {
@@ -102,7 +81,7 @@ public class ShopFragment extends Fragment {
                     for (android.app.Fragment item : fragmentList) {
                         FragmentManager fragmentManager = getActivity().getFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.add(R.id.fragment_shop_show, item);
+                        fragmentTransaction.add(is_left ? R.id.fragment_release_show_left : R.id.fragment_release_show_right, item);
                         fragmentTransaction.commit();
                         is_left = !is_left;
                     }
@@ -113,6 +92,4 @@ public class ShopFragment extends Fragment {
         });
         return jsonObjects;
     }
-
-
 }

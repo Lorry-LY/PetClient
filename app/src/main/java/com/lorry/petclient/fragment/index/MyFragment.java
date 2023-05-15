@@ -19,6 +19,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.lorry.petclient.R;
 import com.lorry.petclient.fragment.my.CollectFragment;
+import com.lorry.petclient.fragment.my.ReleaseFragment;
 import com.lorry.petclient.fragment.my.SupportFragment;
 import com.lorry.petclient.util.http.HttpMapper;
 
@@ -40,6 +41,7 @@ public class MyFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fragments = new ArrayList<>();
+        fragments.add(new ReleaseFragment());
         fragments.add(new CollectFragment());
         fragments.add(new SupportFragment());
 
@@ -148,8 +150,6 @@ public class MyFragment extends Fragment {
                         LinearLayout avatar = view.findViewById(R.id.fragment_my_image_background);
                         byte[] decodedString = Base64.decode(base64, Base64.DEFAULT);
                         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-//                            avatar.setBackgroundResource();
-//                            avatar.setImageBitmap(decodedByte);
                     });
                 }
             } catch (JSONException e) {

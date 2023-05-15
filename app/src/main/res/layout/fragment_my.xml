@@ -286,6 +286,11 @@
                     app:tabTextAppearance="@style/HomeTabLayoutText">
 
                     <com.google.android.material.tabs.TabItem
+                        android:text="发布"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content" />
+
+                    <com.google.android.material.tabs.TabItem
                         android:text="收藏"
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content" />

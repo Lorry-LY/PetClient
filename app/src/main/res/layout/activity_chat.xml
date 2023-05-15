@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ChatActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/back" />
+
+            <LinearLayout
+                android:id="@+id/layout_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/btn_concern"
+                android:layout_toEndOf="@id/btn_back"
+                android:orientation="horizontal">
+
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:id="@+id/image_author"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@null"
+                    android:src="@drawable/avatar3"
+                    android:scaleType="fitCenter"
+                    app:round="360dip" />
+
+
+                <TextView
+                    android:id="@+id/text_author"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="我是你的宝"
+                    android:paddingStart="10dp" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btn_concern"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:src="@drawable/search_icon"
+                android:padding="10dp"
+                android:layout_toStartOf="@+id/btn_share" />
+
+            <ImageButton
+                android:id="@+id/btn_share"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/points_three" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#ededed">
+
+            <LinearLayout
+                android:id="@+id/layout_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="05-12 12:38">
+
+                </TextView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="top">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@null"
+                        android:src="@drawable/avatar3"
+                        android:scaleType="fitCenter"
+
+                        app:round="360dip" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxWidth="260dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/radius_message"
+                        android:text="吃午饭了吗？">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="right"
+                    android:layout_gravity="end">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxWidth="260dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/radius_message"
+                        android:text="吃了呀，自己做了点红烧肉，给狗子加了鸡腿和火腿肠，下午出去耍？">
+
+                    </TextView>
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@null"
+                        android:src="@drawable/avatar4"
+                        android:scaleType="fitCenter"
+                        app:round="360dip" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="top">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@null"
+                        android:src="@drawable/avatar3"
+                        android:scaleType="fitCenter"
+
+                        app:round="360dip" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxWidth="280dp"
+                        android:layout_marginLeft="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/radius_message"
+                        android:text="好的，下午见。">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="05-15 14:58">
+
+                </TextView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginVertical="5dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:gravity="top">
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:background="@null"
+                        android:src="@drawable/avatar3"
+                        android:scaleType="fitCenter"
+
+                        app:round="360dip" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:maxWidth="260dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/radius_message"
+                        android:text="你看了我发的视频了吗？">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+
+            android:orientation="horizontal"
+            android:background="#e9efe9">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginVertical="7dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@null"
+                android:src="@drawable/avatar4"
+                android:scaleType="fitCenter"
+                app:round="360dip" />
+
+            <EditText
+                android:id="@+id/edit_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="发消息···"
+                android:paddingVertical="5dp"
+                android:layout_marginVertical="5dp"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/radius_message" />
+
+            <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/btn_open_extra"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginVertical="7dp"
+                android:background="@null"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/add_icon"
+                android:scaleType="fitCenter"
+                app:round="360dip" />
+
+            <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/btn_send"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginVertical="7dp"
+                android:layout_marginHorizontal="5dp"
+                android:background="@null"
+                android:src="@drawable/send_icon"
+                android:scaleType="fitCenter"
+                app:round="360dip" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_extra"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+            android:orientation="horizontal"
+            android:background="#e9efe9">
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/camera_icon"
+                    android:scaleType="fitCenter"
+                    app:round="360dip" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:text="拍摄">
+
+                </TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterView
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/album_icon"
+                    android:scaleType="fitCenter"
+                    app:round="360dip" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:text="相册">
+
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
